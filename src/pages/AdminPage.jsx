@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import UkmManager from '../components/ukmManager'; 
+import UkmManager from '../components/UkmManager'; 
 import PendaftarTable from '../components/PendaftarTable';
 import KegiatanManager from '../components/KegiatanManager';
 import LaporanManager from '../components/LaporanManager';
