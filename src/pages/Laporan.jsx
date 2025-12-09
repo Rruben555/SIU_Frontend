@@ -13,7 +13,7 @@ function Laporan() {
         setLoading(true);
         setError(null);
         // Fetch dari API yang sama dengan pagesAdmin
-        const response = await axios.get('http://localhost:3001/ukm');
+        const response = await axios.get('https://siu-backend-theta.vercel.app/ukm');
         setLaporanData(response.data);
       } catch (err) {
         console.error('Error fetching laporan:', err);

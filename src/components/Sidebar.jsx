@@ -1,7 +1,10 @@
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
 export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
   const location = useLocation();
+  const { role } = useContext(UserContext); // ⬅ CEK ROLE USER
 
   const MenuItem = ({ label, page }) => (
     <button
@@ -10,7 +13,9 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
         onClose();
       }}
       className={`w-full p-3 my-2 rounded-lg font-semibold transition ${
-        location.pathname === page ? "bg-gray-200 text-black" : "bg-white text-black hover:bg-gray-200"
+        location.pathname === page
+          ? "bg-gray-200 text-black"
+          : "bg-white text-black hover:bg-gray-200"
       }`}
     >
       {label}
@@ -27,6 +32,13 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
 
       <MenuItem label="Profil" page="/profile" />
       <MenuItem label="Pengaturan" page="/settings" />
+
+      {/** 🔥 ADMIN BUTTON — HANYA MUNCUL KALAU ROLE ADMIN */}
+      {role === "admin" && (
+        <div className="mt-4">
+          <MenuItem label="Panel Admin" page="/admin" />
+        </div>
+      )}
 
       <div className="mt-auto text-black">
         <button
@@ -61,5 +73,4 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
       </div>
     </div>
   );
-
 }

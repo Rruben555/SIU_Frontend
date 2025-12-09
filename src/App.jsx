@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 
 // ✅ AXIOS CONFIG
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://siu-backend-theta.vercel.app/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // ✅ UserContext

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import UkmKomentar from '../components/UkmKomentar';
 import axios from 'axios';
 import { UserContext } from '../App'; // sesuaikan path
 
@@ -15,7 +16,7 @@ function DetailUkm() {
   useEffect(() => {
     const fetchUkm = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/ukm/${id}`);
+        const response = await axios.get(`https://siu-backend-theta.vercel.app/ukm/${id}`);
         setUkm(response.data);
 
         // Cek apakah user terdaftar sebagai anggota
@@ -133,6 +134,8 @@ function DetailUkm() {
           </div>
         )}
       </div>
+      
+      <UkmKomentar ukmId={id} user={user} token={token} />
 
       {/* ✅ MODAL INTERAKTIF */}
       {showModal && (
@@ -197,6 +200,7 @@ function DetailUkm() {
             </div>
           </div>
         </div>
+        
       )}
     </>
   );

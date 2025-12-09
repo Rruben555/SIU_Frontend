@@ -32,7 +32,7 @@ function Home() {
       try {
         setLoadingUkm(true);
         // Ganti dengan URL JSON Server Anda atau backend API
-        const response = await axios.get('http://localhost:3001/ukm');
+        const response = await axios.get('https://siu-backend-theta.vercel.app/ukm');
         setUkmList(response.data);
         setApiError(false);
       } catch (error) {
