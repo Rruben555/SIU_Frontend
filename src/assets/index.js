@@ -1,4 +1,4 @@
-import logosiu from "./logosiu.png"
+import logosiu from "./LogoSIU.png"
 
 
 export {
